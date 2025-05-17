@@ -63,21 +63,15 @@ ALTER TABLE attendances ADD UNIQUE unique_attendance (user_id, punch_time);
 UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2024-08-31 00:00:00' ;
 -- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '1'.
 
-
-UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2024-08-31 00:00:00' ; 
--- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '1'.
-
  UPDATE `attendance_log` SET `status` = '0' WHERE `user_id` = 38; 
 -- This query will update the status of all attendance records where the user_id is '38' to '0'.
 
- UPDATE `attendance_log` SET `user_id` = '38' WHERE `user_id` = 15; 
--- This query will update the user_id of all attendance records where the user_id is '15' to '38'.
 
 UPDATE `attendance_log` SET `status` = '0' WHERE `checktime` <= '2024-08-31 00:00:00' ;
 -- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '0'.
 
 
-
+UPDATE `attendance_log` SET `user_id` = '38' WHERE `user_id` = 15; 
 UPDATE attendance_log SET user_id= 312 WHERE user_id = 38777
 UPDATE attendance_log SET status = 0 WHERE user_id= 312 ;
 -- This query will update the status of all attendance records where the user_id is '312' to '0'.
