@@ -174,7 +174,7 @@ SET staff_id = card_id
  WHERE branch_id = 26;
 -- This query will update the `staff_id` column in the `tbl_employee` table, setting it to the value of the `card_id` column for records where the `branch_id` is 26.
 
-
+ 
 
 
 TRUNCATE tbl_attendance_log; TRUNCATE tbl_attendance; TRUNCATE tbl_holiday; TRUNCATE tbl_m_salary_generate; TRUNCATE tbl_employee; TRUNCATE tbl_position; TRUNCATE tbl_branch_permission; TRUNCATE tbl_leave_application; TRUNCATE meal_deduction; TRUNCATE tbl_salary; TRUNCATE tbl_leave_type; TRUNCATE tbl_department; TRUNCATE tbl_section; TRUNCATE tbl_concern_branch; TRUNCATE tbl_grade; TRUNCATE tbl_schedule; TRUNCATE tbl_company_concern; TRUNCATE meal;
