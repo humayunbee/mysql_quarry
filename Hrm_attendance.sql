@@ -181,3 +181,5 @@ TRUNCATE tbl_attendance_log; TRUNCATE tbl_attendance; TRUNCATE tbl_holiday; TRUN
 -- This query will truncate (delete all data from) the specified tables in the database.
 
 
+SELECT * FROM `attendances` WHERE `status` = 0 GROUP BY `user_id` ORDER BY `user_id` ASC;
+-- This query will select all records from the `attendances` table where the `status` is 0, grouping by `user_id` and ordering by `user_id` in ascending order.
