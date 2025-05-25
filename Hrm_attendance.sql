@@ -32,7 +32,7 @@ JOIN (
     FROM attendances
     GROUP BY user_id, punch_time
     HAVING COUNT(*) > 1
-) b ON a.user_id = b.user_id AND a.punch_time = b.punch_time AND a.id != b.min_id;
+) b ON a.user_id = b.user_id AND a.punch_time = b.punch_time AND a.id !=b.min_id;
 
 -- This query will delete all but the earliest record for each user_id and punch_time combination.
 
@@ -60,24 +60,21 @@ ALTER TABLE attendances ADD UNIQUE unique_attendance (user_id, punch_time);
 -- This query will delete duplicate records from the attendances table based on user_id and punch_time.
 
 
-UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2024-08-31 00:00:00' ;
--- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '1'.
+UPDATE `attendance_log` 
+SET `status` = '1' 
+WHERE `checktime` <= '2025-04-30 00:00:00';
 
-
-UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2024-08-31 00:00:00' ; 
 -- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '1'.
 
  UPDATE `attendance_log` SET `status` = '0' WHERE `user_id` = 38; 
 -- This query will update the status of all attendance records where the user_id is '38' to '0'.
 
- UPDATE `attendance_log` SET `user_id` = '38' WHERE `user_id` = 15; 
--- This query will update the user_id of all attendance records where the user_id is '15' to '38'.
 
 UPDATE `attendance_log` SET `status` = '0' WHERE `checktime` <= '2024-08-31 00:00:00' ;
 -- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '0'.
 
 
-
+UPDATE `attendance_log` SET `user_id` = '38' WHERE `user_id` = 15; 
 UPDATE attendance_log SET user_id= 312 WHERE user_id = 38777
 UPDATE attendance_log SET status = 0 WHERE user_id= 312 ;
 -- This query will update the status of all attendance records where the user_id is '312' to '0'.
@@ -180,10 +177,12 @@ SET staff_id = card_id
  WHERE branch_id = 26;
 -- This query will update the `staff_id` column in the `tbl_employee` table, setting it to the value of the `card_id` column for records where the `branch_id` is 26.
 
-
+ 
 
 
 TRUNCATE tbl_attendance_log; TRUNCATE tbl_attendance; TRUNCATE tbl_holiday; TRUNCATE tbl_m_salary_generate; TRUNCATE tbl_employee; TRUNCATE tbl_position; TRUNCATE tbl_branch_permission; TRUNCATE tbl_leave_application; TRUNCATE meal_deduction; TRUNCATE tbl_salary; TRUNCATE tbl_leave_type; TRUNCATE tbl_department; TRUNCATE tbl_section; TRUNCATE tbl_concern_branch; TRUNCATE tbl_grade; TRUNCATE tbl_schedule; TRUNCATE tbl_company_concern; TRUNCATE meal;
 -- This query will truncate (delete all data from) the specified tables in the database.
 
 
+SELECT * FROM `attendances` WHERE `status` = 0 GROUP BY `user_id` ORDER BY `user_id` ASC;
+-- This query will select all records from the `attendances` table where the `status` is 0, grouping by `user_id` and ordering by `user_id` in ascending order.
