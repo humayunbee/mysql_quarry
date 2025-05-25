@@ -32,7 +32,7 @@ JOIN (
     FROM attendances
     GROUP BY user_id, punch_time
     HAVING COUNT(*) > 1
-) b ON a.user_id = b.user_id AND a.punch_time = b.punch_time AND a.id != b.min_id;
+) b ON a.user_id = b.user_id AND a.punch_time = b.punch_time AND a.id !=b.min_id;
 
 -- This query will delete all but the earliest record for each user_id and punch_time combination.
 
