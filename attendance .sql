@@ -73,6 +73,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 
 ডান পাশে আপনি Run-এ টাইপ করা পুরনো কমান্ডগুলোর লিস্ট (a, b, c... নামে) দেখতে পাবেন।
 যেগুলো আপনি মুছে ফেলতে চান, সেগুলোর ওপর রাইট ক্লিক করে Delete দিন।
+
 MRUList নামক ভ্যালুটি ডিলিট করবেন না।
 কাজ শেষ হলে Regedit বন্ধ করে দিন।
 
