@@ -131,6 +131,19 @@ AND `in_time` IS NOT NULL;
 -- This query will update the `late_time` column in the `tbl_attendance` table for a specific `card_id` and date range, calculating the difference in minutes between `in_time` and `first_in_time`.
 
 
+-- #for `late_time` calculation
+UPDATE `tbl_attendance`
+SET `late_time` = GREATEST(0, TIMESTAMPDIFF(MINUTE, `in_time`, `first_in_time`))
+WHERE `schedule_id` = 6 AND `attendance_date` = '2025-06-15';
+
+
+#for `late_status` Update 
+UPDATE `tbl_attendance`
+SET `late_status` = 0
+WHERE late_time < 1 AND `schedule_id` = 6 AND `attendance_date` = '2025-06-15';
+
+
+
 
 UPDATE tbl_attendance SET early_going = 0 WHERE schedule_id = 1 AND early_going = 1 AND out_time > '18:00:00' AND attendance_date > '2024-07-01';
 -- This query will update the `early_going` column in the `tbl_attendance` table for a specific `schedule_id`, setting it to 0 for records where `out_time` is greater than '18:00:00' and `attendance_date` is after '2024-07-01'.
