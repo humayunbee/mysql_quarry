@@ -1,4 +1,14 @@
--- HR Software Attendance Qurrey 
+-- HR Software Attendance Qurrey ...
+✅ ১. Laragon দিয়ে phpMyAdmin Install (সবচেয়ে সহজ উপায়)
+👉 ধাপ:
+Laragon চালু করুন
+
+উপরের মেনুতে যান:
+Menu > Tools > Quick Add > phpMyAdmin
+
+ক্লিক করলেই Laragon phpMyAdmin ডাউনলোড ও ইনস্টল করে দেবে।
+
+শেষে Menu > Reload দিন।
 
 -- This will silently install the 64-bit Access Database Engine without checking for conflicting Office versions.
 cd C:\Users\USER\Downloads
