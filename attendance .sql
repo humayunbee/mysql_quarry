@@ -71,7 +71,7 @@ UPDATE attendance_log SET status = 0 WHERE user_id= 312 ;
 -- This query will update the status of all attendance records where the user_id is '312' to '0'.
 
 
-.....
+....
 Windows-এ Run (Windows + R) এর হিস্টরি (ইতিহাস) ডিলেট করার কয়েকটি উপায় আছে। নিচে সহজভাবে ব্যাখ্যা করছি:
 🧹 পদ্ধতি ১: Registry Editor ব্যবহার করে
 
