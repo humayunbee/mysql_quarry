@@ -14,6 +14,10 @@ Menu > Tools > Quick Add > phpMyAdmin
 cd C:\Users\USER\Downloads
 AccessDatabaseEngine_x64.exe /quiet
 
+-- Open Port Check Tool
+-- Use this tool to check if a specific port is open on your server or local machine.
+https://canyouseeme.org/
+
 
  UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-06-10';
 -- This query will update the status of all attendance records where the punch_time is less than or equal to '2024-10-30' to '1'.
