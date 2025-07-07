@@ -21,7 +21,10 @@ https://canyouseeme.org/
 
  UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-06-10';
 -- This query will update the status of all attendance records where the punch_time is less than or equal to '2024-10-30' to '1'.
-DELETE FROM attendances WHERE punch_time >= '2025-06-30';
+DELETE FROM attendances WHERE punch_time >= '2025-12-31';
+
+DELETE FROM attendances WHERE user_id NOT REGEXP '^[0-9]+$';
+
  UPDATE `attendances` SET `user_id` = '38' WHERE `user_id` = '15'; 
 -- This query will update the user_id of all attendance records where the user_id is '15' to '38'.
 
