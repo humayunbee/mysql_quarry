@@ -14,3 +14,9 @@ WHERE stu_id = 64
 
 
 ...
+
+
+//before add zero in phone number
+UPDATE `students`
+SET `f_phone` = CONCAT('0', `f_phone`)
+WHERE LENGTH(`f_phone`) = 10;

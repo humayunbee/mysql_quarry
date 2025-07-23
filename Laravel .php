@@ -17,3 +17,7 @@ php artisan storage:link
 
 
 php artisan key:generate
+
+
+<!-- Laravel Custom Error Pages – Design 404, 500 & 503 Error Views cmd -->
+php artisan vendor:publish --tag=laravel-errors

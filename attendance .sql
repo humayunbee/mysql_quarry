@@ -19,7 +19,7 @@ AccessDatabaseEngine_x64.exe /quiet
 https://canyouseeme.org/
 
 
- UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-06-10';
+ UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-01-01';
 -- This query will update the status of all attendance records where the punch_time is less than or equal to '2024-10-30' to '1'.
 DELETE FROM attendances WHERE punch_time >= '2025-12-31';
 
@@ -59,7 +59,12 @@ ALTER TABLE attendances ADD UNIQUE unique_attendance (user_id, punch_time);
 
 -- This query will delete duplicate records from the attendances table based on user_id and punch_time.
 
-UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2024-08-31 00:00:00' ;
+
+UPDATE `attendance_log` SET `status` = '0' WHERE `checktime` >= '2025-06-24 00:00:00';
+
+
+UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2025-06-30 00:00:00';
+
 -- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '1'.
 
 
