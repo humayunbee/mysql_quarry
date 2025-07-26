@@ -38,6 +38,7 @@ SET t1.unit_cost = t2.max_unit_cost
 WHERE t1.unit_cost = 0;
 
 
+UPDATE `tbl_sales` SET `sale_status` = '1' WHERE `user_id` = 102 AND `sale_status` = 0;
 
 
 
