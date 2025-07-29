@@ -15,7 +15,7 @@ cd C:\Users\USER\Downloads
 AccessDatabaseEngine_x64.exe /quiet
 
 
- UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-04-30';
+ UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-05-30';
 -- This query will update the status of all attendance records where the punch_time is less than or equal to '2024-10-30' to '1'.
 
  UPDATE `attendances` SET `user_id` = '38' WHERE `user_id` = '15'; 
