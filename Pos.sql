@@ -1,6 +1,9 @@
 
+-- to product space remove 
+
 UPDATE IGNORE `products`
 SET `product_id` = REPLACE(`product_id`, ' ', '');
+
 
 UPDATE IGNORE `online_order_details`
 SET `product_id` = REPLACE(`product_id`, ' ', '');
@@ -59,3 +62,46 @@ SET product_id = TRIM(product_id);
 
 
 
+
+
+
+✅ ফাইনাল SQL Query (with sale.date_time as payment.date_time):
+Sale টেবিল থেকে payment টেবিলে ডেটা ইনসার্ট করার জন্য নিচের SQL কোডটি ব্যবহার করুন। এখানে sale টেবিলের date_time ফিল্ডকে payment টেবিলের date_time ফিল্ডে ব্যবহার করা হয়েছে।
+```
+INSERT INTO payment (
+    customer_id,
+    date_time,
+    emi_discount_amount,
+    amount,
+    collected,
+    fund_id,
+    inv_no,
+    note,
+    previous_payment_collection,
+    previous_payment_date,
+    branch_id,
+    user_id,
+    status,
+    created
+)
+SELECT
+    s.customer_id,
+    MAX(s.date_time),               -- এখানেই sale টেবিলের তারিখ বসানো হলো
+    0.00,
+    SUM(s.quantity * s.rate),
+    SUM(s.quantity * s.rate),
+    '1',
+    s.inv_no,
+    'Auto inserted from sale',
+    0,
+    NULL,
+    MAX(s.branch_id),
+    MAX(s.user_id),
+    1,
+    NOW()
+FROM sale s
+LEFT JOIN payment p ON s.inv_no = p.inv_no
+WHERE p.inv_no IS NULL
+GROUP BY s.inv_no, s.customer_id;
+
+```
