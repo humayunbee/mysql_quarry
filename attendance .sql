@@ -18,8 +18,7 @@ AccessDatabaseEngine_x64.exe /quiet
 -- Use this tool to check if a specific port is open on your server or local machine.
 https://canyouseeme.org/
 
-
- UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-01-01';
+ UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-05-30';
 -- This query will update the status of all attendance records where the punch_time is less than or equal to '2024-10-30' to '1'.
 DELETE FROM attendances WHERE punch_time >= '2025-12-31';
 
