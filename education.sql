@@ -30,6 +30,8 @@ laravel education_management
 
 ALTER TABLE `system_settings` ADD `theme` int NOT NULL DEFAULT 1 AFTER `website`;
 
+ALTER TABLE `system_settings` ADD `software_status` INT NOT NULL DEFAULT 0 AFTER `theme`;
+
 ALTER TABLE `subjects` ADD `subject_group` VARCHAR(30) NULL DEFAULT NULL AFTER `section_id`;
 
 -- তুমি যদি চাও যেসব marks এন্ট্রির subject_id আর subjects টেবিলে নেই (মানে ডিলিট হয়ে গেছে), সেগুলো মুছে ফেলতে — তাহলে নিচের DELETE কুয়েরি ব্যবহার করো:
