@@ -34,6 +34,15 @@ ALTER TABLE `system_settings` ADD `software_status` INT NOT NULL DEFAULT 0 AFTER
 
 ALTER TABLE `subjects` ADD `subject_group` VARCHAR(30) NULL DEFAULT NULL AFTER `section_id`;
 
+ALTER TABLE `chair_member_messeges`
+ADD COLUMN `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `type`,
+ADD COLUMN `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `title`;
+
+
+
+
+
+
 -- তুমি যদি চাও যেসব marks এন্ট্রির subject_id আর subjects টেবিলে নেই (মানে ডিলিট হয়ে গেছে), সেগুলো মুছে ফেলতে — তাহলে নিচের DELETE কুয়েরি ব্যবহার করো:
 DELETE m
 FROM marks m
