@@ -38,6 +38,9 @@ ALTER TABLE `chair_member_messeges`
 ADD COLUMN `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `type`,
 ADD COLUMN `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `title`;
 
+ALTER TABLE `exams` 
+ADD COLUMN `result_status` TINYINT(1) NOT NULL DEFAULT 0 AFTER `status`;
+
 
 
 
