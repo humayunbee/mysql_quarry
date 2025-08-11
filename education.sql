@@ -24,6 +24,23 @@ WHERE LENGTH(`f_phone`) = 10;
 
 
 laravel education_management
+-- Database add colum
+
+ALTER TABLE `system_settings` ADD `theme` int NOT NULL DEFAULT 1 AFTER `website`;
+
+ALTER TABLE `system_settings` ADD `software_status` INT NOT NULL DEFAULT 0 AFTER `theme`;
+
+ALTER TABLE `subjects` ADD `subject_group` VARCHAR(30) NULL DEFAULT NULL AFTER `section_id`;
+ALTER TABLE `web_downloads` ADD COLUMN `teacher_id` BIGINT DEFAULT NULL AFTER `status`;
+
+
+ALTER TABLE `chair_member_messeges`
+ADD COLUMN `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `type`,
+ADD COLUMN `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `title`;
+
+ALTER TABLE `exams` 
+ADD COLUMN `result_status` TINYINT(1) NOT NULL DEFAULT 0 AFTER `status`;
+
 
 
 -- Database add colum
