@@ -28,18 +28,22 @@ laravel education_management
 
 -- Database add colum
 
-ALTER TABLE `system_settings` ADD `theme` int NOT NULL DEFAULT 1 AFTER `website`;
+ALTER TABLE `system_settings` 
+ADD COLUMN IF NOT EXISTS `theme` INT NOT NULL DEFAULT 1 AFTER `website`,
+ADD COLUMN IF NOT EXISTS `software_status` INT NOT NULL DEFAULT 0 AFTER `theme`;
 
-ALTER TABLE `system_settings` ADD `software_status` INT NOT NULL DEFAULT 0 AFTER `theme`;
+ALTER TABLE `subjects` 
+ADD COLUMN IF NOT EXISTS `subject_group` VARCHAR(30) NULL DEFAULT NULL AFTER `section_id`;
 
-ALTER TABLE `subjects` ADD `subject_group` VARCHAR(30) NULL DEFAULT NULL AFTER `section_id`;
+ALTER TABLE `web_downloads` 
+ADD COLUMN IF NOT EXISTS `teacher_id` BIGINT DEFAULT NULL AFTER `status`;
 
 ALTER TABLE `chair_member_messeges`
-ADD COLUMN `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `type`,
-ADD COLUMN `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `title`;
+ADD COLUMN IF NOT EXISTS `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `type`,
+ADD COLUMN IF NOT EXISTS `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `title`;
 
 ALTER TABLE `exams` 
-ADD COLUMN `result_status` TINYINT(1) NOT NULL DEFAULT 0 AFTER `status`;
+ADD COLUMN IF NOT EXISTS `result_status` TINYINT(1) NOT NULL DEFAULT 0 AFTER `status`;
 
 
 
