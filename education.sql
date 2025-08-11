@@ -44,6 +44,30 @@ ADD COLUMN IF NOT EXISTS `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT
 
 ALTER TABLE `exams` 
 ADD COLUMN IF NOT EXISTS `result_status` TINYINT(1) NOT NULL DEFAULT 0 AFTER `status`;
+CREATE TABLE IF NOT EXISTS `important_link` (
+  `id` int NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `url_link` text,
+  `status` tinyint NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+INSERT IGNORE INTO `important_link` (`id`, `title`, `url_link`, `status`) VALUES
+(1, 'Ministry of Education', 'https://moedu.gov.bd/', 1),
+(2, 'DSHE', 'http://www.dshe.gov.bd/', 1),
+(3, 'Dhaka Education Board', 'https://dhakaeducationboard.gov.bd/', 1),
+(4, 'BTEB', 'http://www.techedu.gov.bd/', 1),
+(5, 'Primary & Mass Education', 'http://www.dpe.gov.bd/', 1),
+(6, 'techedu', 'http://www.techedu.gov.bd', 1),
+(7, 'BANBEIS', 'http://www.banbeis.gov.bd/', 1),
+(8, 'ESIF', 'http://esif.teletalk.com.bd/', 1),
+(9, 'comilla Education Board', 'https://comillaboard.portal.gov.bd/', 1),
+(10, 'EMIS ', 'http://emis.gov.bd/', 1);
+
+ALTER TABLE `important_link`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `important_link`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 
 
