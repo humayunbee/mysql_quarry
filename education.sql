@@ -90,6 +90,13 @@ ALTER TABLE `important_link`
 
 
 
+UPDATE `students` SET
+`phone` = '01852148425' ,
+`f_phone` = '01852148425' ,
+`m_phone`	= '01852148425' ,
+`g_phone`  = '01852148425' 
+WHERE 1;
+
 
 -- তুমি যদি চাও যেসব marks এন্ট্রির subject_id আর subjects টেবিলে নেই (মানে ডিলিট হয়ে গেছে), সেগুলো মুছে ফেলতে — তাহলে নিচের DELETE কুয়েরি ব্যবহার করো:
 DELETE m
