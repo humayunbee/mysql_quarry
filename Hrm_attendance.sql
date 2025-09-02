@@ -169,6 +169,8 @@ SET card_id = machine_id;
 
 -- This query will update the `staff_id` column in the `tbl_employee` table, setting it to the value of the `card_id` column.
 
+UPDATE tbl_employee 
+SET staff_id = card_id;
 
 
 
