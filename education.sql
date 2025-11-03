@@ -68,6 +68,11 @@ CREATE TABLE IF NOT EXISTS `important_link` (
   `status` tinyint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
+
+ALTER TABLE `class_routines`
+ADD COLUMN `group_id` BIGINT(20) DEFAULT NULL AFTER `class_id`;
+
+
 INSERT IGNORE INTO `important_link` (`id`, `title`, `url_link`, `status`) VALUES
 (1, 'Ministry of Education', 'https://moedu.gov.bd/', 1),
 (2, 'DSHE', 'http://www.dshe.gov.bd/', 1),
