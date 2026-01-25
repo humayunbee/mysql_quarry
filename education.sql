@@ -69,10 +69,13 @@ CREATE TABLE IF NOT EXISTS `important_link` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 
+<<<<<<< HEAD
 ALTER TABLE `class_routines`
 ADD COLUMN `group_id` BIGINT(20) DEFAULT NULL AFTER `class_id`;
 
 
+=======
+>>>>>>> 7597976c1084d837e055afc9f2a8753649206f79
 INSERT IGNORE INTO `important_link` (`id`, `title`, `url_link`, `status`) VALUES
 (1, 'Ministry of Education', 'https://moedu.gov.bd/', 1),
 (2, 'DSHE', 'http://www.dshe.gov.bd/', 1),

@@ -18,17 +18,50 @@ AccessDatabaseEngine_x64.exe /quiet
 -- Use this tool to check if a specific port is open on your server or local machine.
 https://canyouseeme.org/
 
+
+
+-- delete duplicate records based on user_id and punch_time
+
+DELETE t1
+FROM attendances t1
+INNER JOIN attendances t2 
+WHERE 
+    t1.id < t2.id AND 
+    t1.user_id = t2.user_id AND 
+    t1.punch_time = t2.punch_time;
+-- This query will delete duplicate records from the attendances table based on user_id and punch_time.
+
+-- adding unique constraint to prevent future duplicates
+
+ALTER TABLE attendances ADD UNIQUE unique_attendance (user_id, punch_time);
+
+
+
+
+
+SELECT DISTINCT device_id FROM attendances WHERE punch_time >= CURDATE() AND punch_time < CURDATE() + INTERVAL 1 DAY ORDER BY `attendances`.`device_id` ASC
+
+
  UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2025-10-20';
 -- This query will update the status of all attendance records where the punch_time is less than or equal to '2024-10-30' to '1'.
-DELETE FROM attendances WHERE punch_time >= '2025-12-31';
+DELETE FROM attendances WHERE punch_time >= '2025-11-25';
+
+DELETE FROM tbl_attendance_log WHERE attendance_date >= '2025-11-27';
 
 DELETE FROM attendances WHERE user_id NOT REGEXP '^[0-9]+$';
 
  UPDATE `attendances` SET `user_id` = '38' WHERE `user_id` = '15'; 
 -- This query will update the user_id of all attendance records where the user_id is '15' to '38'.
 
-
+UPDATE `attendances` 
+SET `status` = '0' 
+WHERE `user_id` IN (
+    '172891','172892',
+);
 -- to Delete Duplicate data From attendance table
+
+
+
 -- This query will delete duplicate records from the attendances table based on user_id and punch_time.
 
 DELETE a

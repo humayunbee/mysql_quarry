@@ -53,11 +53,27 @@ SELECT user_id FROM attendances WHERE user_id NOT REGEXP '^[0-9]+$';
 
 
 
+-- delete duplicate records based on user_id and punch_time
 
+DELETE t1
+FROM attendances t1
+INNER JOIN attendances t2 
+WHERE 
+    t1.id < t2.id AND 
+    t1.user_id = t2.user_id AND 
+    t1.punch_time = t2.punch_time;
+-- This query will delete duplicate records from the attendances table based on user_id and punch_time.
+
+-- adding unique constraint to prevent future duplicates
 
 ALTER TABLE attendances ADD UNIQUE unique_attendance (user_id, punch_time);
 
--- This query will delete duplicate records from the attendances table based on user_id and punch_time.
+
+
+
+
+
+
 
 
 UPDATE `attendance_log` 
