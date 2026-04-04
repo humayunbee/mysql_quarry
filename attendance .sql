@@ -37,6 +37,9 @@ ALTER TABLE attendances ADD UNIQUE unique_attendance (user_id, punch_time);
 
 
 
+SELECT * FROM `attendances` WHERE DATE(`punch_time`) IN ('2026-03-07','2026-03-08','2026-03-10') ORDER BY `punch_time` DESC;
+
+
 
 
 SELECT DISTINCT device_id FROM attendances WHERE punch_time >= CURDATE() AND punch_time < CURDATE() + INTERVAL 1 DAY ORDER BY `attendances`.`device_id` ASC
