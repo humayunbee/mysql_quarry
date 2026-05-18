@@ -45,7 +45,7 @@ SELECT * FROM `attendances` WHERE DATE(`punch_time`) IN ('2026-03-07','2026-03-0
 SELECT DISTINCT device_id FROM attendances WHERE punch_time >= CURDATE() AND punch_time < CURDATE() + INTERVAL 1 DAY ORDER BY `attendances`.`device_id` ASC
 
 
- UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2026-02-28';
+ UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2026-01-01';
 
 
 
@@ -54,7 +54,7 @@ SELECT DISTINCT device_id FROM attendances WHERE punch_time >= CURDATE() AND pun
 
 
 -- This query will update the status of all attendance records where the punch_time is less than or equal to '2024-10-30' to '1'.
-DELETE FROM attendances WHERE punch_time >= '2025-11-25';
+DELETE FROM attendances WHERE punch_time >= '2025-12-31';
 
 DELETE FROM tbl_attendance_log WHERE attendance_date >= '2025-11-27';
 
@@ -105,7 +105,7 @@ ALTER TABLE attendances ADD UNIQUE unique_attendance (user_id, punch_time);
 UPDATE `attendance_log` SET `status` = '0' WHERE `checktime` >= '2025-06-24 00:00:00';
 
 
-UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2025-06-30 00:00:00';
+UPDATE `attendance_log` SET `status` = '1' WHERE `checktime` <= '2025-12-31 00:00:00';
 
 -- This query will update the status of all attendance records where the checktime is less than or equal to '2024-08-31 00:00:00' to '1'.
 
