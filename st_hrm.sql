@@ -4,12 +4,12 @@
 UPDATE tbl_attendance
 SET 
     late_time = CASE 
-        WHEN TIMESTAMPDIFF(SECOND, in_time, first_in_time) > 900 
-        THEN TIMESTAMPDIFF(MINUTE, in_time, first_in_time) - 15
+        WHEN TIMESTAMPDIFF(SECOND, in_time, first_in_time) > 600 
+        THEN TIMESTAMPDIFF(MINUTE, in_time, first_in_time) - 10
         ELSE 0 
     END,
     late_status = CASE 
-        WHEN TIMESTAMPDIFF(SECOND, in_time, first_in_time) > 900 THEN '1'
+        WHEN TIMESTAMPDIFF(SECOND, in_time, first_in_time) > 600 THEN '1'
         ELSE '0' 
     END
 WHERE in_time IS NOT NULL 

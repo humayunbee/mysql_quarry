@@ -45,8 +45,9 @@ SELECT * FROM `attendances` WHERE DATE(`punch_time`) IN ('2026-03-07','2026-03-0
 SELECT DISTINCT device_id FROM attendances WHERE punch_time >= CURDATE() AND punch_time < CURDATE() + INTERVAL 1 DAY ORDER BY `attendances`.`device_id` ASC
 
 
- UPDATE `attendances` SET `status` = '1'  WHERE `punch_time` <= '2026-01-01';
+ UPDATE `attendances` SET `status` = '1'  WHERE   `status` = 0 AND `punch_time` <= '2026-01-01';
 
+ UPDATE `attendances` SET `status` = '2'  WHERE `status` = 0 AND `punch_time` <= '2026-05-30';
 
 
   UPDATE `attendances` SET `status` = '0'  WHERE `punch_time` >= '2026-01-30';
